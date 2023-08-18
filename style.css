@@ -1,0 +1,545 @@
+/**** Reset ****/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin: 40px 0;
+}
+
+/**** Bouton inscrpition button marquee ****/
+
+.btn__marquee {
+    padding: 20px 35px;
+    font-size: 32px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #000000;
+    background-color: #f1f1f1;
+}
+
+.marquee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 10;
+    white-space: nowrap;
+    width: 100%;
+    height: 100%;
+}
+
+.marquee span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.btn__marquee:hover .base__text {
+    opacity: 0;
+}
+
+.btn__marquee:hover .marquee {
+    animation: infiniteSpin 1s linear infinite;
+}
+
+@keyframes infiniteSpin {
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.btn__marquee:hover .marquee span {
+    font-style: italic;
+}
+
+/**** Bouton arc-en-ciel  ****/
+
+.rainbow {
+    padding: 20px 50px;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    color: #000000;
+    border-radius: 30px;
+    box-shadow: 0 -0 0 0 rgba(143, 64, 248, .5), 0 0 0 0 rgba(39, 200, 255, .5);
+    transition: all 0.2s ease-out;
+}
+
+.rainbow::after {
+    content: '';
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: -50px;
+    left: -100px;
+    background-image: linear-gradient(225deg, #27d86c 0%, #26caf8 50%, #c625d0 100%);
+    z-index: -1;
+    transition: all 0.5s ease-out;
+}
+
+.rainbow:hover::after {
+    transform: rotate(150deg);
+}
+  
+.rainbow:hover {
+    transform: translate(0,-6px);
+    box-shadow: 10px -10px 25px 0px rgba(143, 64, 248, .25), -10px 10px 25px 0px rgba(39, 200, 255, .25);
+}
+
+/**** Bouton avec animation sur les bordures ****/
+
+.login {
+    width: 200px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-transform: uppercase;
+    padding: 25px;
+}
+
+.login::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 2px solid #5630ff;
+    border-right: 2px solid #5630ff;
+    animation: border-top-right 3s infinite alternate;
+}
+
+@keyframes border-top-right {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    25% {
+        width: 200px;
+        height: 0;
+    }
+    50% {
+        width: 200px;
+        height: 98%;
+    }
+    100% {
+        width: 200px;
+        height: 98%;
+    }
+}
+
+.login::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 2px solid #5630ff;
+    border-left: 2px solid #5630ff;
+    animation: border-bottom-left 3s infinite alternate;
+}
+
+@keyframes border-bottom-left {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    50% {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    50.1% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    75% {
+        width: 200px;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 200px;
+        height: 96.5%;
+        opacity: 1;
+    }
+}
+
+/**** Bouton avec effet néon ****/
+
+.neon__link {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #2198fa;
+    background-color: #031321;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin: 40px 0;
+    transition: all 0.2s ease-out;
+}
+
+.neon__link:hover {
+    color: #255784;
+    background-color: #2198fa;
+    box-shadow: 0 0 10px #2198fa, 0 0 40px #2198fa, 0 0 80px #2198fa;
+    transition-delay: 1s;
+}
+
+.neon__link span {
+    position: absolute;
+    display: block;
+}
+
+.neon__link span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background-image: linear-gradient(90deg, transparent,#2198fa);
+}
+
+.neon__link:hover span:nth-child(1) {
+    left: 100%;
+    transition: 1s;
+}
+
+.neon__link span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-image: linear-gradient(180deg, transparent,#2198fa);
+}
+
+.neon__link:hover span:nth-child(2) {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+.neon__link span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 4px;
+    background-image: linear-gradient(270deg, transparent,#2198fa);
+}
+
+.neon__link:hover span:nth-child(3) {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+.neon__link span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-image: linear-gradient(360deg, transparent,#2198fa);
+}
+
+.neon__link:hover span:nth-child(4) {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+/**** .btn = classe générique pour le bouton berder pop, les boutons background slide, le bouton background circle et le bouton background underline ****/
+
+.btn {
+    background-color: var(--background-color);
+    color: #222;
+    padding: 20px 35px;
+    position: relative;
+    cursor: pointer;
+    font-size: 24px;
+    text-transform: uppercase;
+  
+    --background-color: #f1f1f1;
+    --border-size: 2px;
+    --accent-color: #00aaff;
+}
+  
+/**** Bouton border pop ****/
+
+.btn.btn-border-pop::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border: var(--border-size) solid var(--background-color);
+    transition: top, left, right, bottom, 0.4s ease-out;
+}
+  
+.btn.btn-border-pop:hover::before,
+.btn.btn-border-pop:focus::before {
+    top: calc(var(--border-size) * -4);
+    left: calc(var(--border-size) * -4);
+    right: calc(var(--border-size) * -4);
+    bottom: calc(var(--border-size) * -4);
+}
+  
+/**** bouton background slide ****/
+
+.btn.btn-background-slide {
+    transition: color 0.4s ease-out;
+    z-index: 1;
+}
+
+.btn.btn-background-slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-out;
+}
+  
+.btn.btn-background-slide:hover::before,
+.btn.btn-background-slide:focus::before {
+    transform: scaleX(1);
+}
+  
+.btn.btn-background-slide:hover,
+.btn.btn-background-slide:focus {
+    color: #ffffff;
+}
+
+/**** Bouton background slide right ****/
+
+.btn.btn-background-slide-right {
+    transition: color 0.4s ease-out;
+    z-index: 1;
+}
+
+.btn.btn-background-slide-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease-out;
+}
+  
+.btn.btn-background-slide-right:hover::before,
+.btn.btn-background-slide-right:focus::before {
+    transform: scaleX(1);
+}
+  
+.btn.btn-background-slide-right:hover,
+.btn.btn-background-slide-right:focus {
+    color: #ffffff;
+}
+
+/**** Bouton background slide center ****/
+
+.btn.btn-background-slide-center {
+    transition: color 0.4s ease-out;
+    z-index: 1;
+}
+
+.btn.btn-background-slide-center::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease-out;
+}
+  
+.btn.btn-background-slide-center:hover::before,
+.btn.btn-background-slide-center:focus::before {
+    transform: scaleX(1);
+}
+  
+.btn.btn-background-slide-center:hover,
+.btn.btn-background-slide-center:focus {
+    color: #ffffff;
+}
+
+/**** Bouton background slide up ****/
+
+.btn.btn-background-slide-up {
+    transition: color 0.4s ease-out;
+    z-index: 1;
+}
+
+.btn.btn-background-slide-up::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: var(--accent-color);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s ease-out;
+}
+  
+.btn.btn-background-slide-up:hover::before,
+.btn.btn-background-slide-up:focus::before {
+    transform: scaleY(1);
+}
+  
+.btn.btn-background-slide-up:hover,
+.btn.btn-background-slide-up:focus {
+    color: #ffffff;
+}
+
+/**** Bouton background slide down  effet coulissant ****/
+
+.btn.btn-background-slide-down {
+    transition: color 0.4s ease-out;
+    z-index: 1;
+}
+
+.btn.btn-background-slide-down::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: var(--accent-color);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s ease-out;
+}
+  
+.btn.btn-background-slide-down:hover::before,
+.btn.btn-background-slide-down:focus::before {
+    transform: scaleY(1);
+}
+  
+.btn.btn-background-slide-down:hover,
+.btn.btn-background-slide-down:focus {
+    color: #ffffff;
+}
+
+/**** Bouton background circle ****/
+
+.btn.btn-background-circle {
+    z-index: 1;
+    overflow: hidden;
+    background-color: var(--accent-color);
+    transition: color 0.5s ease-out;
+}
+  
+.btn.btn-background-circle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    transform: scale(1.5);
+    transition: transform 0.5s ease-out;
+}
+  
+.btn.btn-background-circle:hover::before,
+.btn.btn-background-circle:focus::before {
+    transform: scale(0);
+}
+  
+.btn.btn-background-circle:hover,
+.btn.btn-background-circle:focus {
+    color: #ffffff;
+}
+  
+/**** Bouton background underline ****/
+
+.btn.btn-border-underline-bottom::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--border-size);
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transition: transform 0.4s ease-out;
+}
+  
+.btn.btn-border-underline-bottom:hover::before,
+.btn.btn-border-underline-bottom:focus::before {
+    transform: scaleX(1);
+}
+
+/**** Bouton border underline top ****/
+
+.btn.btn-border-underline-top::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: var(--border-size);
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transition: transform 0.4s ease-out;
+}
+  
+.btn.btn-border-underline-top:hover::before,
+.btn.btn-border-underline-top:focus::before {
+    transform: scaleX(1);
+}
